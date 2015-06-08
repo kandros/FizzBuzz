@@ -7,7 +7,9 @@ function FizzBuzz(number) {
   var result = "";
   var knownNumberStringPairs = {
     "3" : "Fizz",
-    "5" : "Buzz"
+    "5" : "Buzz",
+    "7" : "Mezz",
+    "22" : "Lotzz"
   };
 
   function multipliedByParser(){
