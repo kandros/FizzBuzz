@@ -1,30 +1,32 @@
-
+// Get argument passed while executing the program with Node.js, as actual arguments are from 3rd ownard
 var arg = process.argv[2];
 
-function FizzBuzz(n) {
 
-  var result;
-  function multipleOf(num){
-    return n % num === 0;
+function FizzBuzz(number) {
+
+  var result = "";
+  var knownNumberStringPairs = {
+    "3" : "Fizz",
+    "5" : "Buzz"
+  };
+
+  function multipliedByParser(){
+    var obj = knownNumberStringPairs;
+    for (var prop in obj) {
+      var propN = Number(prop);
+      if (multipleOf(propN)) {
+        result += obj[prop];
+      }
+    }
   }
 
-  function stringFactory() {
 
-    var firstGameNamePart = "Fizz";
-    var secondGameNamePart = "Buzz";
-    var gameName = firstGameNamePart + secondGameNamePart;
-
-    if (multipleOf(3) && multipleOf(5)) {
-      result = gameName;
-    } else if (multipleOf(3)) {
-      result = firstGameNamePart;
-    } else if (multipleOf(5))  {
-      result = secondGameNamePart;
-    } else {
-      result = n;
-    }
-  } 
-  stringFactory();
+  function multipleOf(num){
+    return number % num === 0;
+  }
+  
+  multipliedByParser();
+  result = result.length ? result : number;
   console.log(result);
 }
 
