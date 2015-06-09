@@ -5,19 +5,19 @@ var arg = process.argv[2];
 function FizzBuzz(number) {
 
   var result = "";
-  var knownNumberStringPairs = {
-    "3" : "Fizz",
-    "5" : "Buzz",
-    "7" : "Mezz",
-    "22" : "Lotzz"
-  };
+  var knownNumberStringPairs = new Map([
+    ["3","Fizz"],
+    ["5","Buzz"],
+    ["7","Mezz"],
+    ["22","Lotzz"],
+  ]);
 
   function multipliedByParser(){
-    var obj = knownNumberStringPairs;
-    for (var prop in obj) {
-      var propN = Number(prop);
-      if (multipleOf(propN)) {
-        result += obj[prop];
+    var map = knownNumberStringPairs;
+    for (var key of map.keys()) {
+      var keyN = Number(key);
+      if (multipleOf(keyN)) {
+        result += map.get(key);
       }
     }
   }
